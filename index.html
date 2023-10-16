@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BMI calculator</title>
+
+	<link href="./css/style.css" rel="stylesheet">
+
+	<script src="./js/script.js" defer></script>
+</head>
+
+<body>
+	<section class="bmi">
+		<div class="container">
+			<div class="bmi__body">
+				<h1 class="bmi__title">
+					BMI calculator
+				</h1>
+				<div class="bmi__calculator">
+					<form class="bmi__form bmi-form" action="#">
+						<input class="bmi-form__weight" type="text" name="userweight" value=""
+							placeholder="Enter your current weight in kg" autocomplete="off">
+						<input class="bmi-form__height" type="text" name="userheight" value=""
+							placeholder="Enter your current height in cm" autocomplete="off">
+						<button class="bmi-form__btn" data-modal="result">Get the result</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="modal-box">
+		<div class="modal" id="result">
+			<p class="bmi__result"></p>
+			<button class="modal__btn-close">Close</button>
+		</div>
+	</div>
+</body>
+
+</html>
