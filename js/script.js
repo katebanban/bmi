@@ -12,27 +12,29 @@ form.addEventListener('submit', function (e) {
 	let userWeight = formWeight.value;
 	let userHeight = formHeight.value;
 
-	userWeight = parseFloat(userWeight);
-	userHeight = parseFloat(userHeight);
+	if (userHeight === '' || userWeight === '') {
+		let error = 'Enter the values';
+		result.innerHTML = error;
+	} else {
+		let bmi = parseFloat((userWeight / ((userHeight / 100) ** 2)).toFixed(1));
 
-	let bmi = parseFloat((userWeight / ((userHeight / 100) ** 2)).toFixed(1));
-
-	if (bmi < 16) {
-		result.innerHTML = `Your BMI is <span class="dark-blue">${bmi}</span> - you have <span class="dark-blue">Severe Thinness</span>`;
-	} else if (bmi >= 16 && bmi < 17) {
-		result.innerHTML = `Your BMI is <span class="blue">${bmi}</span> - you have <span class="blue">Moderate Thinness</span>`;
-	} else if (bmi >= 17 && bmi < 18.5) {
-		result.innerHTML = `Your BMI is <span class="light-blue">${bmi}</span> - you have <span class="light-blue">Mild Thinness</span>`;
-	} else if (bmi >= 18.5 && bmi < 25) {
-		result.innerHTML = `Your BMI is <span class="green">${bmi}</span> - you have <span class="green">Normal Weight</span>`;
-	} else if (bmi >= 25 && bmi < 30) {
-		result.innerHTML = `Your BMI is <span class="yellow">${bmi}</span> - you have <span class="yellow">Overweight</span>`;
-	} else if (bmi >= 30 && bmi < 35) {
-		result.innerHTML = `Your BMI is <span class="orange">${bmi}</span> - you have <span class="orange">Obese Class I</span>`;
-	} else if (bmi >= 35 && bmi < 40) {
-		result.innerHTML = `Your BMI is <span class="light-red">${bmi}</span> - you have <span class="light-red">Obese Class II</span>`;
-	} else if (bmi >= 40) {
-		result.innerHTML = `Your BMI is <span class="red">${bmi}</span> - you have <span class="red">Obese Class III</span>`;
+		if (bmi < 16) {
+			result.innerHTML = `Your BMI is <span class="dark-blue">${bmi}</span> - you have <span class="dark-blue">Severe Thinness</span>`;
+		} else if (bmi >= 16 && bmi < 17) {
+			result.innerHTML = `Your BMI is <span class="blue">${bmi}</span> - you have <span class="blue">Moderate Thinness</span>`;
+		} else if (bmi >= 17 && bmi < 18.5) {
+			result.innerHTML = `Your BMI is <span class="light-blue">${bmi}</span> - you have <span class="light-blue">Mild Thinness</span>`;
+		} else if (bmi >= 18.5 && bmi < 25) {
+			result.innerHTML = `Your BMI is <span class="green">${bmi}</span> - you have <span class="green">Normal Weight</span>`;
+		} else if (bmi >= 25 && bmi < 30) {
+			result.innerHTML = `Your BMI is <span class="yellow">${bmi}</span> - you have <span class="yellow">Overweight</span>`;
+		} else if (bmi >= 30 && bmi < 35) {
+			result.innerHTML = `Your BMI is <span class="orange">${bmi}</span> - you have <span class="orange">Obese Class I</span>`;
+		} else if (bmi >= 35 && bmi < 40) {
+			result.innerHTML = `Your BMI is <span class="light-red">${bmi}</span> - you have <span class="light-red">Obese Class II</span>`;
+		} else if (bmi >= 40) {
+			result.innerHTML = `Your BMI is <span class="red">${bmi}</span> - you have <span class="red">Obese Class III</span>`;
+		}
 	}
 })
 
@@ -48,7 +50,7 @@ allModalOpenBtn.forEach((openBtn) => {
 		const id = openBtn.getAttribute('data-modal');
 
 		// ищем текущую модалку по id-шнику
-		const currentModal = modalBox.querySelector(`#${ id }`);
+		const currentModal = modalBox.querySelector(`#${id}`);
 
 		// ищем кнопочку закрытия модалки
 		const closeBtn = currentModal.querySelector('.modal__btn-close');

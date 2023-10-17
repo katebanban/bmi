@@ -1,4 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
+//! Убирает стрелочки (вверх-вниз) в <input type="number"> (вроде как для всех браузеров должно подходить)
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+input[type="number"],
+input[type="number"]:hover,
+input[type="number"]:focus {
+	appearance: none;
+	-moz-appearance: textfield;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap");
 
 *,
 *::before,
@@ -27,7 +40,7 @@ button {
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-style: normal;
 	font-weight: 500; // Medium
 	font-size: 18px;
@@ -123,6 +136,7 @@ body {
 	}
 
 	&__result {
+		text-align: center;
 	}
 }
 
@@ -207,6 +221,10 @@ body {
 	transform: translate(-50%, -50%);
 	transition: all 0.3s;
 
+	@media (max-width: 550px) {
+		width: 90%;
+	}
+
 	&__btn-close {
 		margin: 0 auto;
 		padding: 15px;
@@ -214,7 +232,7 @@ body {
 
 		border: none;
 		border-radius: 20px;
-	
+
 		background-color: darkolivegreen;
 		color: #fff;
 		transition: all 0.3s;
